@@ -1,9 +1,8 @@
-colorama==0.4.6
-iniconfig==2.3.1
+fastapi==0.143.1
+google-genai==2.31.0
 numpy==2.5.4
 opencv-python-headless==5.0.0.93
-packaging==26.3
-pluggy==1.6.0
-pygments==2.21.0
-pytest==9.1.1
-uvicorn
+pydantic==2.14.1
+python-dotenv==1.2.4
+python-multipart==0.0.32
+uvicorn==0.54.0

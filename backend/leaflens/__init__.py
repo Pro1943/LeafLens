@@ -1,4 +1,9 @@
-from leaflens.config import APP_NAME
+from leaflens.config import (
+    APP_NAME,
+    HEALTHY_THRESHOLD_PCT,
+    ISSUE_THRESHOLD_PCT,
+    UNCERTAIN_BAND,
+)
 from leaflens.discolor import find_worst_patch, measure_discoloration
 from leaflens.enhance import auto_crop_to_leaf, fix_exposure, remove_glare, sharpen
 from leaflens.io_utils import (
@@ -21,6 +26,9 @@ from leaflens.tools import TOOLS, clear_store, get_image, register_image
 
 __all__ = [
     "APP_NAME",
+    "HEALTHY_THRESHOLD_PCT",
+    "ISSUE_THRESHOLD_PCT",
+    "UNCERTAIN_BAND",
     "measure_blur",
     "measure_exposure",
     "measure_glare",

@@ -32,11 +32,16 @@ def clear_store() -> None:
     _IMAGE_STORE.clear()
 
 
-def tool_check_quality(image_id: str) -> dict[str, Any]:
+def tool_check_quality(
+    image_id: str,
+    reconstructed_mask_id: Optional[str] = None,
+) -> dict[str, Any]:
     """Run full quality check on image."""
     img = get_image(image_id)
-    report = quality_report(img)
+    recon = get_image(reconstructed_mask_id) if reconstructed_mask_id else None
+    report = quality_report(img, reconstructed_mask=recon)
     return {"image_id": image_id, "quality_report": report}
+
 
 
 def tool_fix_exposure(image_id: str, clip_limit: float = 2.0) -> dict[str, Any]:
@@ -113,7 +118,13 @@ TOOLS: dict[str, dict[str, Any]] = {
         "description": "Analyze image quality including blur, exposure, glare, and leaf coverage.",
         "params": {
             "type": "object",
-            "properties": {"image_id": {"type": "string", "description": "ID of image in store"}},
+            "properties": {
+                "image_id": {"type": "string", "description": "ID of image in store"},
+                "reconstructed_mask_id": {
+                    "type": "string",
+                    "description": "Optional ID of reconstructed area mask in store",
+                },
+            },
             "required": ["image_id"],
         },
     },

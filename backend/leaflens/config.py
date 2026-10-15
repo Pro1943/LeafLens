@@ -45,3 +45,7 @@ MIN_HOLE_AREA: int = 15
 MAX_HOLE_AREA_RATIO: float = 0.35
 
 PATCH_WINDOW_SIZES: tuple[int, ...] = (64, 128, 192)
+
+HEALTHY_THRESHOLD_PCT: float = 5.0
+ISSUE_THRESHOLD_PCT: float = 15.0
+UNCERTAIN_BAND: tuple[float, float] = (5.0, 15.0)
